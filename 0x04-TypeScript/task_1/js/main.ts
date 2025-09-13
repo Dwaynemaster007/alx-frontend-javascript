@@ -1,16 +1,16 @@
 // Interface for the constructor
-interface StudentClassConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClass;
 }
 
-// Interface for the class methods
-interface StudentClassInterface {
+// Interface for the class
+interface StudentClass {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// The class implementation
-class StudentClass implements StudentClassInterface {
+// Class implementation
+class StudentClass {
   firstName: string;
   lastName: string;
 
