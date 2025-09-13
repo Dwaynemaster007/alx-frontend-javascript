@@ -79,9 +79,9 @@ type Subjects = 'Math' | 'History';
 // The teachClass function
 function teachClass(todayClass: Subjects): string {
   if (todayClass === 'Math') {
-    return `Teaching Math`;
-  } else if (todayClass === 'History') {
-    return `Teaching History`;
+    return 'Teaching Math';
+  } else {
+    return 'Teaching History';
   }
 }
 
