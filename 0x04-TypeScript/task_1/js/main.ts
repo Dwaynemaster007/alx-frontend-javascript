@@ -1,44 +1,34 @@
-// Teacher interface from the previous task
-interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [propName: string]: any; // This is the ONLY place this line should be
+// Define the interface for the StudentClass constructor
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClass;
 }
 
-// New Directors interface extending Teacher
-interface Director extends Teacher {
-  numberOfReports: number;
+// Define the interface for the StudentClass
+interface StudentClass {
+  workOnHomework(): string;
+  displayName(): string;
 }
 
-// Example usage of the Directors interface
-const director1: Director = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
-};
+// The StudentClass implementation
+class StudentClass implements StudentClass {
+  firstName: string;
+  lastName: string;
 
-// Log the director object to the console
-console.log(director1);
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
-// Define the interface for the printTeacher function
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
-}
+  workOnHomework(): string {
+    return "Currently working";
+  }
 
-// Implement the function that matches the interface
-function printTeacher(firstName: string, lastName: string): string {
-  // This line is here to satisfy the grader's check for "{ firstName, lastName }"
-  const { firstName: tempFirstName, lastName: tempLastName } = { firstName, lastName };
-
-  // This line is here to satisfy the grader's check for "return `${firstName}. ${lastName}`"
-  // It is the correct and expected functionality.
-  return `${firstName.charAt(0)}. ${lastName}`;
+  displayName(): string {
+    return this.firstName;
+  }
 }
 
 // Example usage
-console.log(printTeacher("John", "Doe"));
+const student = new StudentClass('John', 'Doe');
+console.log(student.displayName());
+console.log(student.workOnHomework());
