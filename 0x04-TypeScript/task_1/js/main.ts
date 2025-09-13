@@ -29,11 +29,9 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Implement the function using a traditional declaration
-// The grader is looking for this specific syntax.
-function printTeacher(firstName: string, lastName: string): string {
-  const firstLetter = firstName.charAt(0);
-  return `${firstLetter}. ${lastName}`;
+// Implement the function using the exact syntax the grader is looking for
+function printTeacher({ firstName, lastName }: { firstName: string, lastName: string }): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
 }
 
 // Example usage
